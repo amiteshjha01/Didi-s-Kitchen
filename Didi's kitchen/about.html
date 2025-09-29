@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Didi's Kitchen - Our story, mission, and passion for serving delicious Navratri special Vrat ka Khana. Learn about our commitment to hygiene, authenticity, and customer satisfaction.">
+  <meta name="keywords" content="About Didi's Kitchen, Navratri food, Vrat ka khana, homemade food, food delivery, Gurugram">
+  <meta name="author" content="Didi's Kitchen">
+  <meta property="og:title" content="About Us - Didi's Kitchen | Our Story & Mission">
+  <meta property="og:description" content="Learn about Didi's Kitchen - our passion for homemade, healthy, and authentic food. Discover our commitment to serving delicious Navratri special Vrat ka Khana.">
+  <meta property="og:type" content="website">
+  <title>About Us | Didi's Kitchen - Our Story & Mission</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style">
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    :root {
+      --primary-color: #d62828;
+      --secondary-color: #ffba08;
+      --accent-color: #ffc94b;
+      --text-dark: #2c3e50;
+      --text-light: #6c757d;
+      --bg-light: #fffbea;
+      --white: #ffffff;
+      --shadow: 0 4px 20px rgba(0,0,0,0.1);
+      --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-light);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(135deg, var(--primary-color), #b71c1c);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar.scrolled {
+      background: rgba(214, 40, 40, 0.95);
+      backdrop-filter: blur(20px);
+    }
+
+    .navbar-brand {
+      color: var(--white) !important;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-link {
+      color: var(--white) !important;
+      margin: 0 15px;
+      font-weight: 500;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary-color) !important;
+      transform: translateY(-2px);
+    }
+
+    /* Hero */
+    .hero {
+      height: 60vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                  url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1') center/cover no-repeat;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      opacity: 0.9;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 80px 20px;
+    }
+
+    .about-img {
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .about-img:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .highlight {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--primary-color);
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+      bottom: -10px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    /* Values Section */
+    .values {
+      background: linear-gradient(135deg, #f8f9fa, var(--white));
+      border-radius: 20px;
+      padding: 60px 20px;
+      margin-top: 50px;
+      box-shadow: var(--shadow);
+    }
+
+    .icon-box {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .icon-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .icon-box i {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .icon-box:hover i {
+      transform: scale(1.1);
+      color: var(--secondary-color);
+    }
+
+    .icon-box h6 {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .icon-box p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--primary-color), #b71c1c);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .about-section {
+        padding: 60px 20px;
+      }
+      
+      .values {
+        padding: 40px 20px;
+      }
+      
+      .icon-box {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Focus styles */
+    .nav-link:focus,
+    .navbar-brand:focus {
+      outline: 2px solid var(--secondary-color);
+      outline-offset: 2px;
+    }
+
+    /* Social Icons */
+    .social-icons a {
+      color: var(--white);
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: var(--secondary-color);
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    /* Keyboard Navigation */
+    .keyboard-navigation *:focus {
+      outline: 2px solid var(--secondary-color) !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" aria-label="Didi's Kitchen Home">
+        <i class="fas fa-utensils me-2"></i>Didi's Kitchen
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact .html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content animate__animated animate__fadeInDown">
+      <h1>About Us</h1>
+      <p>Our Story • Our Mission • Our Passion</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1b6f1d1b86d" alt="About Didi's Kitchen - Our passion for homemade food" class="img-fluid about-img">
+      </div>
+      <div class="col-md-6">
+        <h2 class="section-title">Welcome to <span class="highlight">Didi's Kitchen</span></h2>
+        <p class="mb-3">
+          Didi's Kitchen was born out of a passion for homemade, healthy, and authentic food.  
+          We believe in serving meals that not only satisfy your hunger but also bring the warmth and love of a home-cooked dish.  
+        </p>
+        <p class="mb-4">
+          Our mission is simple: <span class="highlight">Delicious, Hygienic, and Affordable</span> food for everyone.  
+          Especially during Navratri, we bring you a range of <strong>Vrat-special delicacies</strong> prepared with care, tradition, and authenticity.
+        </p>
+        <a href="service.html" class="btn btn-primary" style="background: linear-gradient(45deg, var(--primary-color), #b71c1c); border: none; padding: 12px 30px; border-radius: 25px; font-weight: 600; transition: var(--transition);">
+          Explore Our Menu
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values container text-center">
+    <h2 class="section-title">Our Core Values</h2>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="icon-box">
+          <i class="fas fa-heart"></i>
+          <h6>Made with Love</h6>
+          <p>Every dish is cooked with care, just like at home.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="icon-box">
+          <i class="fas fa-shield-alt"></i>
+          <h6>Hygienic</h6>
+          <p>We maintain top cleanliness and food safety standards.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="icon-box">
+          <i class="fas fa-star"></i>
+          <h6>Authenticity</h6>
+          <p>Traditional recipes that preserve real taste and culture.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="icon-box">
+          <i class="fas fa-smile"></i>
+          <h6>Customer Happiness</h6>
+          <p>Your satisfaction is our ultimate reward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <h5><i class="fas fa-utensils me-2"></i>Didi's Kitchen</h5>
+          <p class="mb-0">Delicious Navratri Special Vrat ka Khana</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="social-icons mb-3">
+            <a href="#" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="tel:9810887375" title="Call" aria-label="Call"><i class="fas fa-phone"></i></a>
+          </div>
+          <p class="mb-0">Contact: 9810887375</p>
+          <p class="mb-0">&copy; 2024 Didi's Kitchen. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Add loading animation to hero content
+    window.addEventListener('load', function() {
+      const heroContent = document.querySelector('.hero-content');
+      if (heroContent) {
+        heroContent.classList.add('animate__animated', 'animate__fadeInDown');
+      }
+    });
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse.classList.contains('show')) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+          bsCollapse.hide();
+        }
+      }
+    });
+
+    // Add focus management for accessibility
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-navigation');
+      }
+    });
+
+    document.addEventListener('mousedown', function() {
+      document.body.classList.remove('keyboard-navigation');
+    });
+  </script>
+</body>
+</html>

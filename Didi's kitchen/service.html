@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Didi's Kitchen Services - Explore our complete menu including Navratri special Vrat ka Khana, North Indian, South Indian, Italian, and Chinese cuisine. Fresh, hygienic, and delicious food delivery.">
+  <meta name="keywords" content="Didi's Kitchen services, Navratri menu, Vrat ka khana, food delivery, North Indian food, South Indian food, Italian food, Chinese food, Gurugram">
+  <meta name="author" content="Didi's Kitchen">
+  <meta property="og:title" content="Our Services - Didi's Kitchen | Complete Menu & Food Delivery">
+  <meta property="og:description" content="Explore our complete menu including Navratri special Vrat ka Khana, North Indian, South Indian, Italian, and Chinese cuisine. Fresh, hygienic, and delicious food delivery.">
+  <meta property="og:type" content="website">
+  <title>Our Services | Didi's Kitchen - Complete Menu & Food Delivery</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #d62828;
+      --secondary-color: #ffba08;
+      --accent-color: #ffc94b;
+      --text-dark: #2c3e50;
+      --text-light: #6c757d;
+      --bg-light: #fffbea;
+      --white: #ffffff;
+      --shadow: 0 4px 20px rgba(0,0,0,0.1);
+      --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; 
+    }
+
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: var(--bg-light); 
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .navbar { 
+      background: linear-gradient(135deg, var(--primary-color), #b71c1c);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar.scrolled {
+      background: rgba(214, 40, 40, 0.95);
+      backdrop-filter: blur(20px);
+    }
+
+    .navbar-brand,.nav-link { 
+      color: var(--white) !important; 
+      font-weight: 600; 
+      transition: var(--transition);
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-link {
+      position: relative;
+      margin: 0 15px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary-color) !important;
+      transform: translateY(-2px);
+    }
+
+    /* Hero (Navratri now trending) */
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                  url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color: var(--white); 
+      text-align: center; 
+      padding: 120px 20px; 
+      overflow: hidden;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::after { 
+      content:""; 
+      position:absolute; 
+      inset:0; 
+      background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));
+    }
+
+    .hero > .hero-inner { 
+      position:relative; 
+      z-index:1; 
+      max-width: 800px;
+    }
+
+    .badge-trending {
+      display:inline-flex; 
+      align-items:center; 
+      gap:.5rem; 
+      background: var(--secondary-color); 
+      color: var(--text-dark); 
+      font-weight:700; 
+      border-radius:999px; 
+      padding:.4rem .9rem; 
+      box-shadow:0 6px 18px rgba(0,0,0,.2);
+      transform: translateY(0); 
+      animation: floatY 3s ease-in-out infinite;
+    }
+
+    @keyframes floatY { 
+      0%,100%{ transform: translateY(0); } 
+      50%{ transform: translateY(-6px); } 
+    }
+
+    .hero h1 { 
+      font-size: clamp(2rem, 4vw, 3.25rem); 
+      font-weight:800; 
+      text-shadow: 2px 2px 10px rgba(0,0,0,.55); 
+      margin-bottom: 1rem;
+    }
+
+    .hero p { 
+      font-size: clamp(1rem, 1.8vw, 1.2rem); 
+      opacity:.95; 
+      margin-bottom: 2rem;
+    }
+
+    /* Section titles */
+    .section-title { 
+      margin: 48px 0 18px; 
+      font-size: clamp(1.8rem, 4vw, 2.5rem); 
+      font-weight:800; 
+      color: var(--primary-color); 
+      text-align:center; 
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .section-sub { 
+      text-align:center; 
+      margin-top: 10px; 
+      color: var(--text-light); 
+      font-size: 1.1rem;
+    }
+
+    /* Cards */
+    .service-card { 
+      border:0; 
+      border-radius:20px; 
+      overflow:hidden; 
+      background: var(--white); 
+      box-shadow: var(--shadow); 
+      transition: var(--transition); 
+      position:relative; 
+      height: 100%;
+    }
+
+    .service-card:hover { 
+      transform: translateY(-10px); 
+      box-shadow: var(--shadow-hover); 
+    }
+
+    .service-card img { 
+      height: 200px; 
+      width:100%; 
+      object-fit: cover; 
+      transition: var(--transition);
+    }
+
+    .service-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-body { 
+      padding: 20px; 
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .price { 
+      color: var(--primary-color); 
+      font-weight: 800; 
+      font-size: 1.3rem; 
+      margin-bottom: 15px;
+    }
+
+    .qty-wrap { 
+      display:flex; 
+      align-items:center; 
+      gap:.5rem; 
+      justify-content:center; 
+      margin-bottom: 15px;
+    }
+
+    .qty-btn { 
+      width:36px; 
+      height:36px; 
+      border-radius:10px; 
+      border:1px solid #e7e7e7; 
+      background: var(--white); 
+      font-weight:700; 
+      transition: var(--transition);
+    }
+
+    .qty-btn:hover {
+      background: var(--secondary-color);
+      color: var(--text-dark);
+      border-color: var(--secondary-color);
+    }
+
+    .qty-input { 
+      width:64px; 
+      text-align:center; 
+      border:1px solid #e7e7e7; 
+      border-radius:10px; 
+      padding:.35rem; 
+      transition: var(--transition);
+    }
+
+    .qty-input:focus {
+      border-color: var(--secondary-color);
+      outline: none;
+    }
+
+    .btn-order { 
+      background: linear-gradient(45deg, var(--primary-color), #b71c1c); 
+      color: var(--white); 
+      border:none; 
+      border-radius:12px; 
+      padding:.6rem 1rem; 
+      font-weight:700; 
+      width:100%; 
+      box-shadow:0 8px 18px rgba(214, 40, 40, 0.25);
+      transition: var(--transition);
+    }
+
+    .btn-order:hover { 
+      background: linear-gradient(45deg, #b71c1c, var(--primary-color));
+      transform: translateY(-2px);
+      box-shadow:0 12px 25px rgba(214, 40, 40, 0.35);
+      color: var(--white);
+    }
+
+    .ribbon { 
+      position:absolute; 
+      top:12px; 
+      left:-8px; 
+      background: #ff4d4f; 
+      color: var(--white); 
+      font-weight:800; 
+      padding:6px 14px; 
+      transform: rotate(-6deg); 
+      border-radius:8px; 
+      box-shadow:0 6px 16px rgba(0,0,0,.2);
+      font-size: 0.8rem;
+    }
+
+    footer { 
+      background: linear-gradient(135deg, var(--primary-color), #b71c1c); 
+      color: var(--white); 
+      padding: 30px 0; 
+      margin-top: 50px; 
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 20px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .service-card {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Focus styles */
+    .nav-link:focus,
+    .navbar-brand:focus,
+    .btn-order:focus,
+    .qty-btn:focus {
+      outline: 2px solid var(--secondary-color);
+      outline-offset: 2px;
+    }
+
+    /* Social Icons */
+    .social-icons a {
+      color: var(--white);
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: var(--secondary-color);
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    /* Keyboard Navigation */
+    .keyboard-navigation *:focus {
+      outline: 2px solid var(--secondary-color) !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" aria-label="Didi's Kitchen Home">
+        <i class="fas fa-utensils me-2"></i>Didi's Kitchen
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="service.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact .html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero (Trending Navratri) -->
+  <section class="hero">
+    <div class="hero-inner container" data-aos="fade-up">
+      <span class="badge-trending">🔥 Trending Now • Navratri Specials</span>
+      <h1 class="mt-3">Our Special Navratri Menu</h1>
+      <p>Delicious Vrat-friendly food, freshly prepared with love.</p>
+      <a href="#vrat" class="btn btn-light fw-bold px-4 py-2 mt-2">Explore Vrat Menu</a>
+    </div>
+  </section>
+
+  <!-- VRAT / NAVRATRI SECTION (Top) -->
+  <section id="vrat" class="container my-5">
+    <h2 class="section-title" data-aos="zoom-in">Fasting (Vrat) Specials</h2>
+    <p class="section-sub">Pure-veg, saatvik, rock-salt (sendha) options.</p>
+    <div class="row g-4 mt-2">
+      <!-- Item: Sabudana Vada -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card service-card h-100" data-item
+             data-name="Sabudana Vada (2 pcs)" data-price="60" data-img="https://images.unsplash.com/photo-1631439945605-11e6d9c6ed07">
+          <span class="ribbon">Best Seller</span>
+          <img src="https://images.unsplash.com/photo-1631439945605-11e6d9c6ed07" alt="Sabudana Vada" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Sabudana Vada (2 pcs)</h5>
+            <p class="price">₹<span class="price-val">60</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <!-- Item: Navratri Thali -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="card service-card h-100" data-item
+             data-name="Navratri Thali" data-price="100" data-img="https://images.unsplash.com/photo-1627308595183-64e07f0164a0">
+          <img src="https://images.unsplash.com/photo-1627308595183-64e07f0164a0" alt="Navratri Thali" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Navratri Thali (Kuttu Puri, Sabzi, Halwa)</h5>
+            <p class="price">₹<span class="price-val">100</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <!-- Item: Premium Thali -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="card service-card h-100" data-item
+             data-name="Navratri Premium Thali" data-price="150" data-img="https://images.unsplash.com/photo-1604908176997-431e3a1d5b9d">
+          <img src="https://images.unsplash.com/photo-1604908176997-431e3a1d5b9d" alt="Premium Thali" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Navratri Premium Thali</h5>
+            <p class="price">₹<span class="price-val">150</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NORTH INDIAN -->
+  <section class="container my-5">
+    <h2 class="section-title" data-aos="zoom-in">North Indian</h2>
+    <div class="row g-4 mt-1">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card service-card h-100" data-item data-name="Stuffed Paratha with Curd" data-price="80" data-img="https://images.unsplash.com/photo-1589302168068-964664d93dc0">
+          <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0" alt="Paratha" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Stuffed Paratha with Curd</h5>
+            <p class="price">₹<span class="price-val">80</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="card service-card h-100" data-item data-name="Chole Bhature" data-price="110" data-img="https://images.unsplash.com/photo-1601050690597-9c32f3e07f1d">
+          <img src="https://images.unsplash.com/photo-1601050690597-9c32f3e07f1d" alt="Chole Bhature" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Chole Bhature</h5>
+            <p class="price">₹<span class="price-val">110</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="card service-card h-100" data-item data-name="Rajma Chawal" data-price="100" data-img="https://images.unsplash.com/photo-1629198735666-109ba1f23d4c">
+          <img src="https://images.unsplash.com/photo-1629198735666-109ba1f23d4c" alt="Rajma Chawal" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Rajma Chawal</h5>
+            <p class="price">₹<span class="price-val">100</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOUTH INDIAN -->
+  <section class="container my-5">
+    <h2 class="section-title" data-aos="zoom-in">South Indian</h2>
+    <div class="row g-4 mt-1">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card service-card h-100" data-item data-name="Idli with Chutney (4 pcs)" data-price="80" data-img="https://images.unsplash.com/photo-1617196034242-9f58d4b8386d">
+          <img src="https://images.unsplash.com/photo-1617196034242-9f58d4b8386d" alt="Idli" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Idli with Chutney (4 pcs)</h5>
+            <p class="price">₹<span class="price-val">80</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="card service-card h-100" data-item data-name="Masala Dosa" data-price="120" data-img="https://images.unsplash.com/photo-1625944526119-b64b1d5c39b3">
+          <img src="https://images.unsplash.com/photo-1625944526119-b64b1d5c39b3" alt="Masala Dosa" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Masala Dosa</h5>
+            <p class="price">₹<span class="price-val">120</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="card service-card h-100" data-item data-name="Medu Vada (2 pcs)" data-price="70" data-img="https://images.unsplash.com/photo-1622308644420-94a3ee694cce">
+          <img src="https://images.unsplash.com/photo-1622308644420-94a3ee694cce" alt="Medu Vada" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Medu Vada (2 pcs)</h5>
+            <p class="price">₹<span class="price-val">70</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITALIAN -->
+  <section class="container my-5">
+    <h2 class="section-title" data-aos="zoom-in">Italian</h2>
+    <div class="row g-4 mt-1">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card service-card h-100" data-item data-name="Creamy White Sauce Pasta" data-price="120" data-img="https://images.unsplash.com/photo-1601924638867-3ec0cf14b9d5">
+          <img src="https://images.unsplash.com/photo-1601924638867-3ec0cf14b9d5" alt="Pasta" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Creamy White Sauce Pasta</h5>
+            <p class="price">₹<span class="price-val">120</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="card service-card h-100" data-item data-name="Margherita Pizza (8")" data-price="180" data-img="https://images.unsplash.com/photo-1548365328-9f547fb09550">
+          <img src="https://images.unsplash.com/photo-1548365328-9f547fb09550" alt="Pizza" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Margherita Pizza (8")</h5>
+            <p class="price">₹<span class="price-val">180</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHINESE -->
+  <section class="container my-5">
+    <h2 class="section-title" data-aos="zoom-in">Chinese</h2>
+    <div class="row g-4 mt-1">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card service-card h-100" data-item data-name="Veg Hakka Noodles" data-price="100" data-img="https://images.unsplash.com/photo-1599819196300-25f4c843c1e3">
+          <img src="https://images.unsplash.com/photo-1599819196300-25f4c843c1e3" alt="Noodles" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Veg Hakka Noodles</h5>
+            <p class="price">₹<span class="price-val">100</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="card service-card h-100" data-item data-name="Veg Manchurian (Gravy)" data-price="130" data-img="https://images.unsplash.com/photo-1604908553980-59aab3f2a16a">
+          <img src="https://images.unsplash.com/photo-1604908553980-59aab3f2a16a" alt="Manchurian" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Veg Manchurian (Gravy)</h5>
+            <p class="price">₹<span class="price-val">130</span></p>
+            <div class="qty-wrap mt-2">
+              <button class="qty-btn" data-minus>-</button>
+              <input type="number" class="qty-input" value="1" min="1" />
+              <button class="qty-btn" data-plus>+</button>
+            </div>
+            <button class="btn-order mt-3" data-order>Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <h5><i class="fas fa-utensils me-2"></i>Didi's Kitchen</h5>
+          <p class="mb-0">Delicious Navratri Special Vrat ka Khana</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="social-icons mb-3">
+            <a href="#" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="tel:9810887375" title="Call" aria-label="Call"><i class="fas fa-phone"></i></a>
+          </div>
+          <p class="mb-0">Contact: 9810887375</p>
+          <p class="mb-0">&copy; 2024 Didi's Kitchen. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ duration: 700, once: true });
+
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Utility: format INR
+    const fmt = (n) => new Intl.NumberFormat('en-IN').format(n);
+
+    // Attach quantity handlers + dynamic price updates
+    document.querySelectorAll('[data-item]').forEach(card => {
+      const base = Number(card.dataset.price);
+      const priceEl = card.querySelector('.price-val');
+      const qtyInput = card.querySelector('.qty-input');
+      const minus = card.querySelector('[data-minus]');
+      const plus = card.querySelector('[data-plus]');
+
+      const reprice = () => { 
+        const q = Math.max(1, Number(qtyInput.value||1)); 
+        priceEl.textContent = fmt(base * q); 
+      };
+
+      minus.addEventListener('click', () => { 
+        qtyInput.value = Math.max(1, Number(qtyInput.value||1) - 1); 
+        reprice(); 
+      });
+
+      plus.addEventListener('click', () => { 
+        qtyInput.value = Math.max(1, Number(qtyInput.value||1) + 1); 
+        reprice(); 
+      });
+
+      qtyInput.addEventListener('input', reprice);
+      reprice();
+
+      // Order button -> push to localStorage cart and go to contact page
+      card.querySelector('[data-order]').addEventListener('click', () => {
+        const item = {
+          name: card.dataset.name,
+          unitPrice: base,
+          qty: Math.max(1, Number(qtyInput.value||1)),
+          img: card.dataset.img
+        };
+        const cart = JSON.parse(localStorage.getItem('dk_cart')||'[]');
+        cart.push(item);
+        localStorage.setItem('dk_cart', JSON.stringify(cart));
+        
+        // Show success message
+        const btn = card.querySelector('[data-order]');
+        const originalText = btn.textContent;
+        btn.textContent = 'Added to Cart!';
+        btn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+        
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = 'linear-gradient(45deg, var(--primary-color), #b71c1c)';
+        }, 1500);
+        
+        // Navigate to contact page after a short delay
+        setTimeout(() => {
+          window.location.href = 'contact .html';
+        }, 2000);
+      });
+    });
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse.classList.contains('show')) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+          bsCollapse.hide();
+        }
+      }
+    });
+
+    // Add focus management for accessibility
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-navigation');
+      }
+    });
+
+    document.addEventListener('mousedown', function() {
+      document.body.classList.remove('keyboard-navigation');
+    });
+
+    // Phone number click handler
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const phoneNumber = this.getAttribute('href').replace('tel:', '');
+        if (confirm(`Call ${phoneNumber}?`)) {
+          window.location.href = this.getAttribute('href');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+

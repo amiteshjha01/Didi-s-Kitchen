@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact & Payment - Didi's Kitchen. Place your order, view cart summary, and pay securely via UPI. Contact us at 9810887375 for food delivery in Gurugram.">
+  <meta name="keywords" content="Didi's Kitchen contact, food order, UPI payment, cart summary, food delivery Gurugram, 9810887375">
+  <meta name="author" content="Didi's Kitchen">
+  <meta property="og:title" content="Contact & Payment - Didi's Kitchen | Order & Pay Securely">
+  <meta property="og:description" content="Place your order, view cart summary, and pay securely via UPI. Contact us at 9810887375 for food delivery in Gurugram.">
+  <meta property="og:type" content="website">
+  <title>Contact & Payment | Didi's Kitchen - Order & Pay Securely</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #d62828;
+      --secondary-color: #ffba08;
+      --accent-color: #ffc94b;
+      --text-dark: #2c3e50;
+      --text-light: #6c757d;
+      --bg-light: #fffbea;
+      --white: #ffffff;
+      --shadow: 0 4px 20px rgba(0,0,0,0.1);
+      --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: var(--bg-light); 
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .navbar { 
+      background: linear-gradient(135deg, var(--primary-color), #b71c1c);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar.scrolled {
+      background: rgba(214, 40, 40, 0.95);
+      backdrop-filter: blur(20px);
+    }
+
+    .navbar-brand,.nav-link { 
+      color: var(--white) !important; 
+      font-weight: 600; 
+      transition: var(--transition);
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-link {
+      position: relative;
+      margin: 0 15px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary-color) !important;
+      transform: translateY(-2px);
+    }
+
+    .card { 
+      border: 0; 
+      border-radius: 20px; 
+      box-shadow: var(--shadow); 
+      transition: var(--transition);
+      background: var(--white);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .price { 
+      color: var(--primary-color); 
+      font-weight: 800; 
+    }
+
+    .qr-box { 
+      background: linear-gradient(135deg, var(--secondary-color), var(--accent-color)); 
+      border-radius: 20px; 
+      padding: 30px; 
+      box-shadow: var(--shadow);
+      color: var(--text-dark);
+      text-align: center;
+    }
+
+    .qr-box img {
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+
+    .qr-box img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-brand { 
+      background: linear-gradient(45deg, var(--primary-color), #b71c1c); 
+      color: var(--white); 
+      border: none; 
+      border-radius: 12px; 
+      padding: .65rem 1rem; 
+      font-weight: 700; 
+      transition: var(--transition);
+    }
+
+    .btn-brand:hover {
+      background: linear-gradient(45deg, #b71c1c, var(--primary-color));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(214, 40, 40, 0.3);
+      color: var(--white);
+    }
+
+    .table > :not(caption) > * > * { 
+      padding: .9rem .75rem; 
+    }
+
+    .table th {
+      background: var(--bg-light);
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .btn-outline-secondary {
+      border-color: var(--text-light);
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .btn-outline-secondary:hover {
+      background: var(--secondary-color);
+      border-color: var(--secondary-color);
+      color: var(--text-dark);
+    }
+
+    .btn-outline-danger {
+      border-color: #dc3545;
+      color: #dc3545;
+      transition: var(--transition);
+    }
+
+    .btn-outline-danger:hover {
+      background: #dc3545;
+      border-color: #dc3545;
+      color: var(--white);
+    }
+
+    .form-control {
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      padding: 12px 15px;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 0.2rem rgba(255, 186, 8, 0.25);
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--primary-color), #b71c1c);
+      color: var(--white);
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .card {
+        margin-bottom: 20px;
+      }
+      
+      .table-responsive {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Focus styles */
+    .nav-link:focus,
+    .navbar-brand:focus,
+    .btn-brand:focus,
+    .form-control:focus {
+      outline: 2px solid var(--secondary-color);
+      outline-offset: 2px;
+    }
+
+    /* Loading states */
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Social Icons */
+    .social-icons a {
+      color: var(--white);
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: var(--secondary-color);
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    /* Keyboard Navigation */
+    .keyboard-navigation *:focus {
+      outline: 2px solid var(--secondary-color) !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" aria-label="Didi's Kitchen Home">
+        <i class="fas fa-utensils me-2"></i>Didi's Kitchen
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact .html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container py-4">
+    <div class="row g-4">
+      <!-- Order Summary -->
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="card p-3">
+          <div class="card-body">
+            <h3 class="mb-3">Your Order Summary</h3>
+            <div class="table-responsive">
+              <table class="table align-middle">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th class="text-center">Qty</th>
+                    <th class="text-end">Unit</th>
+                    <th class="text-end">Subtotal</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="order-body"></tbody>
+                <tfoot>
+                  <tr>
+                    <th colspan="3" class="text-end">Total</th>
+                    <th class="text-end price">₹<span id="order-total">0</span></th>
+                    <th></th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <div class="d-flex gap-2 mt-2">
+              <a href="services.html" class="btn btn-outline-secondary">Add More</a>
+              <button id="clear-cart" class="btn btn-outline-danger">Clear Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="col-lg-5" data-aos="fade-left">
+        <div class="card p-3">
+          <div class="card-body">
+            <h3 class="mb-3">Pay via UPI</h3>
+            <div class="qr-box text-center">
+              <!-- Replace the image below with your actual QR code image path (e.g., assets/upi-qr.png) -->
+              <img id="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=didiskitchen@upi&pn=Didi%27s%20Kitchen&cu=INR&am=0" alt="UPI QR" width="220" height="220" />
+              <p class="mt-2 mb-0 small text-muted">Scan & pay securely</p>
+            </div>
+            <div class="mt-3">
+              <label class="form-label">UPI ID (VPA)</label>
+              <div class="input-group">
+                <!-- IMPORTANT: Replace this with your real UPI VPA -->
+                <input id="vpa" class="form-control" value="didiskitchen@upi" />
+                <button class="btn btn-outline-secondary" id="copy-vpa">Copy</button>
+              </div>
+              <button id="pay-now" class="btn-brand w-100 mt-3">Pay in UPI App</button>
+              <small class="text-muted d-block mt-2">Note: Payment amount auto-fills based on your order total.</small>
+            </div>
+            <hr/>
+            <h5>Contact</h5>
+            <p class="mb-1">📞 +91 9810887375</p>
+            <p class="mb-0">📍 Gurugram, Haryana</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <h5><i class="fas fa-utensils me-2"></i>Didi's Kitchen</h5>
+          <p class="mb-0">Delicious Navratri Special Vrat ka Khana</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="social-icons mb-3">
+            <a href="#" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="tel:9810887375" title="Call" aria-label="Call"><i class="fas fa-phone"></i></a>
+          </div>
+          <p class="mb-0">Contact: 9810887375</p>
+          <p class="mb-0">&copy; 2024 Didi's Kitchen. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ duration: 700, once: true });
+
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    const fmt = (n) => new Intl.NumberFormat('en-IN').format(n);
+
+    // Load cart
+    const bodyEl = document.getElementById('order-body');
+    const totalEl = document.getElementById('order-total');
+    
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('dk_cart')||'[]');
+      bodyEl.innerHTML = '';
+      let total = 0;
+      
+      if (cart.length === 0) {
+        bodyEl.innerHTML = `
+          <tr>
+            <td colspan="5" class="text-center py-4">
+              <div class="text-muted">
+                <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+                <h5>Your cart is empty</h5>
+                <p>Add some delicious items from our menu!</p>
+                <a href="service.html" class="btn btn-brand">Browse Menu</a>
+              </div>
+            </td>
+          </tr>`;
+        totalEl.textContent = '0';
+        updateUPILink(0);
+        return;
+      }
+      
+      cart.forEach((it, idx) => {
+        const sub = it.unitPrice * it.qty; 
+        total += sub;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div class="d-flex align-items-center gap-2">
+              <img src="${it.img}" alt="${it.name}" width="56" height="56" style="object-fit:cover; border-radius:10px;"/>
+              <div>
+                <div class="fw-semibold">${it.name}</div>
+                <div class="small text-muted">₹${fmt(it.unitPrice)} each</div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">
+            <div class="d-inline-flex align-items-center gap-1">
+              <button class="btn btn-sm btn-outline-secondary" data-dec="${idx}" title="Decrease quantity">
+                <i class="fas fa-minus"></i>
+              </button>
+              <span class="mx-2" id="q${idx}">${it.qty}</span>
+              <button class="btn btn-sm btn-outline-secondary" data-inc="${idx}" title="Increase quantity">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </td>
+          <td class="text-end">₹${fmt(it.unitPrice)}</td>
+          <td class="text-end fw-semibold">₹${fmt(sub)}</td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-danger" data-del="${idx}" title="Remove item">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>`;
+        bodyEl.appendChild(tr);
+      });
+      totalEl.textContent = fmt(total);
+      updateUPILink(total);
+    }
+
+    // Update qty/remove
+    bodyEl.addEventListener('click', (e) => {
+      const cart = JSON.parse(localStorage.getItem('dk_cart')||'[]');
+      if (e.target.dataset.inc) {
+        const i = Number(e.target.dataset.inc); 
+        cart[i].qty++; 
+        localStorage.setItem('dk_cart', JSON.stringify(cart)); 
+        loadCart();
+      } else if (e.target.dataset.dec) {
+        const i = Number(e.target.dataset.dec); 
+        cart[i].qty = Math.max(1, cart[i].qty-1); 
+        localStorage.setItem('dk_cart', JSON.stringify(cart)); 
+        loadCart();
+      } else if (e.target.dataset.del) {
+        const i = Number(e.target.dataset.del); 
+        if (confirm('Remove this item from cart?')) {
+          cart.splice(i,1); 
+          localStorage.setItem('dk_cart', JSON.stringify(cart)); 
+          loadCart();
+        }
+      }
+    });
+
+    document.getElementById('clear-cart').addEventListener('click', () => {
+      if (confirm('Clear all items from cart?')) {
+        localStorage.removeItem('dk_cart'); 
+        loadCart();
+      }
+    });
+
+    // UPI helpers
+    const vpaInput = document.getElementById('vpa');
+    const qrImg = document.getElementById('qr-img');
+    
+    function updateUPILink(amount){
+      const vpa = encodeURIComponent(vpaInput.value.trim());
+      const name = encodeURIComponent("Didi's Kitchen");
+      const link = `upi://pay?pa=${vpa}&pn=${name}&cu=INR&am=${amount}`;
+      // Update QR image on the fly
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(link)}`;
+      document.getElementById('pay-now').onclick = () => { 
+        window.location.href = link; 
+      };
+    }
+    
+    vpaInput.addEventListener('input', ()=> updateUPILink(Number((document.getElementById('order-total').textContent||'0').replace(/,/g,''))));
+
+    document.getElementById('copy-vpa').addEventListener('click', async () => {
+      try { 
+        await navigator.clipboard.writeText(vpaInput.value.trim()); 
+        // Show success feedback
+        const btn = document.getElementById('copy-vpa');
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('btn-success');
+        btn.classList.remove('btn-outline-secondary');
+        
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('btn-success');
+          btn.classList.add('btn-outline-secondary');
+        }, 2000);
+      } catch(e){ 
+        alert('Copy failed, please manually copy the UPI ID.'); 
+      }
+    });
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse.classList.contains('show')) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+          bsCollapse.hide();
+        }
+      }
+    });
+
+    // Add focus management for accessibility
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-navigation');
+      }
+    });
+
+    document.addEventListener('mousedown', function() {
+      document.body.classList.remove('keyboard-navigation');
+    });
+
+    // Phone number click handler
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const phoneNumber = this.getAttribute('href').replace('tel:', '');
+        if (confirm(`Call ${phoneNumber}?`)) {
+          window.location.href = this.getAttribute('href');
+        }
+      });
+    });
+
+    // Initialize cart on page load
+    loadCart();
+  </script>
+</body>
+</html>
